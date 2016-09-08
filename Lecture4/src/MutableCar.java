@@ -10,17 +10,32 @@ public class MutableCar {
 	
 	private double xPos = 0;
 	private double yPos = 0;
-	private Color color;
+	private Color color = Color.BLACK;
+	
+	private int horizontalSpeed = 0; //Car speed in pixels per second
+	private int horizontalDirection = 0;
 	
 	public MutableCar(double x, double y) {
 		this.xPos = x;
 		this.yPos = y;
+		horizontalSpeed = 10;
+		horizontalDirection = 1; //Moving right
 	}
 	
 	public MutableCar(double x, double y, Color color) {
 		this.xPos = x;
 		this.yPos = y;
 		this.color = color;
+		horizontalSpeed = 10;
+		horizontalDirection = 1; //Moving right
+	}
+	
+	public MutableCar(double x, double y, Color color, int horizontalSpeed, int horizontalDirection) {
+		this.xPos = x;
+		this.yPos = y;
+		this.color = color;
+		this.horizontalSpeed = horizontalSpeed;
+		this.horizontalDirection = horizontalDirection; //Moving right
 	}
 	
 	public Color getColor() {
@@ -30,10 +45,19 @@ public class MutableCar {
 	public double getXPos() {
 		return this.xPos;
 	}
-	 public double getYPos() {
+	
+	public double getYPos() {
 		 return this.yPos;
 	 }
-	
+	 
+	public int getHorizontalSpeed() {
+			return horizontalSpeed;
+		}
+
+	public int getHorizontalDirection() {
+			return horizontalDirection;
+		}
+
 	public void setPosition(double xPos, double yPos) {
 		this.xPos = xPos;
 		this.yPos = yPos;
@@ -43,6 +67,14 @@ public class MutableCar {
 		this.color = color;
 	}
 	
+	public void setHorizontalSpeed(int horizontalSpeed) {
+		this.horizontalSpeed = horizontalSpeed;
+	}
+
+	public void setHorizontalDirection(int horizontalDirection) {
+		this.horizontalDirection = horizontalDirection;
+	}
+
 	public void draw(Graphics g) {
 				
 		Graphics2D g2 = (Graphics2D) g;
