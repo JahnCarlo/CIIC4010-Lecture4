@@ -1,4 +1,6 @@
+import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class MyMain
 {
@@ -6,7 +8,7 @@ public class MyMain
 	{
 		JFrame frame = new JFrame();
 		
-		MyComponent theComponent = new MyComponent();
+		CarStage theComponent = new CarStage();
 		
 		frame.add(theComponent);
 		
@@ -15,9 +17,15 @@ public class MyMain
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 		
-		while(true) {
+		while(!theComponent.getReachedBottom()) {
 			frame.repaint();
-			Thread.sleep(1000);
+			Thread.sleep(100);
 		}
+		
+		JOptionPane optionPane = new JOptionPane("Car Reached Bottom",JOptionPane.WARNING_MESSAGE);
+		JDialog dialog = optionPane.createDialog("Warning!");
+		dialog.setAlwaysOnTop(true); // to show top of all other application
+		dialog.setVisible(true); // to visible the dialog
+		
 	}
 }

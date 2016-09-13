@@ -95,6 +95,8 @@ public class MutableCar {
 		Ellipse2D.Double frontTire = new Ellipse2D.Double(this.xPos+40,this.yPos+20,10,10);
 
 		Rectangle.Double body = new Rectangle.Double(this.xPos+0,this.yPos+10,60.0,10.0);
+		Rectangle.Double leftlight = new Rectangle.Double(this.xPos+0, this.yPos+10, 5.0,5.0);
+		Rectangle.Double rightlight = new Rectangle.Double(this.xPos+55, this.yPos+10, 5.0,5.0);
 
 		g2.setColor(Color.BLACK);
 		g2.draw(rearTire);
@@ -104,5 +106,17 @@ public class MutableCar {
 		g2.draw(rearWindow);
 		g2.draw(frontWindow);
 		g2.draw(roof);
+		if (this.getHorizontalDirection() > 0){
+			g2.setColor(Color.RED);
+			g2.fill(leftlight);
+			g2.setColor(Color.ORANGE);
+			g2.fill(rightlight);
+		}
+		else{
+			g2.setColor(Color.RED);
+			g2.fill(rightlight);
+			g2.setColor(Color.ORANGE);
+			g2.fill(leftlight);
+		}
 	}
 }
